@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        #chain, #battery{
+        #chain, #battery, #hourglass{
             font-size: 50px;
         }
     </style>
@@ -14,9 +14,13 @@
 </head>
 <body>
     <div id="chain" class="fa"></div>
-    <br>
+    <br></br>
     <div id="battery" class="fa"></div>
+    <br></br>
+    <div id="hourglass" class="fa"></div>
     <script>
+        //-------CHAIN----------
+
         // break chain animation
         function breakChain(){
             let chain = document.getElementById('chain');
@@ -36,6 +40,9 @@
         // set interval for chain breaking every two seconds
         setInterval(breakChain, 2000);
 
+
+        //-------BATTERY----------
+        
         // Battery charge animation
         function chargeBattery(){
             let battery = document.getElementById('battery');
@@ -59,6 +66,25 @@
         chargeBattery();
         // want to do 5 secs as entire thing takes 4 secs
         setInterval(chargeBattery, 5000);
+
+
+        //-------HOUR GLASS----------
+        function hourglassTip(){
+            let hourglass = document.getElementById('hourglass');
+            hourglass.innerHTML = "&#xf251";
+
+            setTimeout(function(){
+                hourglass.innerHTML = "&#xf252";
+            }, 1000);
+
+            setTimeout(function(){
+                hourglass.innerHTML = "&#xf253";
+            }, 2000);
+        }
+
+        hourglassTip();
+
+        setInterval(hourglassTip, 3000);
     </script>
 </body>
 </html>
