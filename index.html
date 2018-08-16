@@ -6,27 +6,59 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        #chain{
+        #chain, #battery{
             font-size: 50px;
         }
     </style>
     <title>Animated Icons</title>
 </head>
 <body>
-    <div id="chain" class="fa">
-    </div>
-
+    <div id="chain" class="fa"></div>
+    <br>
+    <div id="battery" class="fa"></div>
     <script>
+        // break chain animation
         function breakChain(){
             let chain = document.getElementById('chain');
+            // we can apply the icon class by innerHTML 
+            // by using unicode of icon
             chain.innerHTML = "&#xf0c1";
-
+            
+            // changes every second
             setTimeout(function(){
                 chain.innerHTML = "&#xf127";
             }, 1000);
         }
-
+        
+        // calls the animation
         breakChain();
+        
+        // set interval for chain breaking every two seconds
+        setInterval(breakChain, 2000);
+
+        // Battery charge animation
+        function chargeBattery(){
+            let battery = document.getElementById('battery');
+            battery.innerHTML = "&#xf244";
+
+            setTimeout(function(){
+                battery.innerHTML = "&#xf243";
+            }, 1000);
+            // set this to two secs otherwise appears same time as above
+            setTimeout(function(){
+                battery.innerHTML = "&#xf242";
+            }, 2000);
+            setTimeout(function(){
+                battery.innerHTML = "&#xf241";
+            }, 3000);
+            setTimeout(function(){
+                battery.innerHTML = "&#xf240";
+            }, 4000);
+        }
+
+        chargeBattery();
+        // want to do 5 secs as entire thing takes 4 secs
+        setInterval(chargeBattery, 5000);
     </script>
 </body>
 </html>
